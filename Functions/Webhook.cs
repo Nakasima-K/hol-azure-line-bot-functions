@@ -59,18 +59,18 @@ namespace Functions
 
             // オウム返しする
             // patern1
-            // var sendMessage = firstEvent.Message.Text;
-            // string replyText;
-            // if (sendMessage == "今日の天気は？")
-            // {
-            //     replyText = "晴れです";
-            // }
-            // else
-            // {
-            //     replyText = sendMessage;
-            // }
+            var sendMessage = firstEvent.Message.Text;
+            string replyText;
+            if (sendMessage == "今日の天気は？")
+            {
+                replyText = "晴れです";
+            }
+            else
+            {
+                replyText = sendMessage;
+            }
 
-            // await Reply(firstEvent.ReplyToken, replyText);
+            await Reply(firstEvent.ReplyToken, replyText);
 
             // patern2
             // 三項演算子
@@ -80,9 +80,9 @@ namespace Functions
 
 
             // patern3
-            var sendMessage = firstEvent.Message.Text;
-            var replyText = $"明日は {sendMessage}";
-            await Reply(firstEvent.ReplyToken, replyText);
+            // var sendMessage = firstEvent.Message.Text;
+            // var replyText = $"明日は{sendMessage}";
+            // await Reply(firstEvent.ReplyToken, replyText);
 
             return new OkResult();
         }
