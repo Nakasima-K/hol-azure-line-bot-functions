@@ -57,33 +57,15 @@ namespace Functions
                 return null;
             }
 
-            // オウム返しする
-            // patern1
-            var sendMessage = firstEvent.Message.Text;
-            string replyText;
-            if (sendMessage == "今日の天気は？")
-            {
-                replyText = "晴れです";
-            }
-            else
-            {
-                replyText = sendMessage;
-            }
+            // オウム返しする 
+            // この一行をコメントアウトする
+            await Reply(firstEvent.ReplyToken, firstEvent.Message.Text);
 
-            await Reply(firstEvent.ReplyToken, replyText);
-
-            // patern2
-            // 三項演算子
+            //　以下3行のコメントアウトをはずす
             // var sendMessage = firstEvent.Message.Text;
             // var replyText = sendMessage == "今日の天気は？" ? "晴れです。" : sendMessage;
             // await Reply(firstEvent.ReplyToken, replyText);
-
-
-            // patern3
-            // var sendMessage = firstEvent.Message.Text;
-            // var replyText = $"明日は{sendMessage}";
-            // await Reply(firstEvent.ReplyToken, replyText);
-
+            
             return new OkResult();
         }
 
