@@ -81,7 +81,7 @@ namespace Functions
 
             // patern3
             var sendMessage = firstEvent.Message.Text;
-            var replyText = $"あああ : {sendMessage}";
+            var replyText = $"明日は {sendMessage}";
             await Reply(firstEvent.ReplyToken, replyText);
 
             return new OkResult();
