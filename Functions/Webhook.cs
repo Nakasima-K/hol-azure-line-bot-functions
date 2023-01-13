@@ -76,7 +76,8 @@ namespace Functions
             // 三項演算子
             var sendMessage = firstEvent.Message.Text;
             var replyText = sendMessage == "今日の天気は？" ? "晴れです。" : sendMessage;
-            await Reply(firstEvent.ReplyToken, firstEvent.Message.Text);
+            // await Reply(firstEvent.ReplyToken, firstEvent.Message.Text);
+            await Reply(firstEvent.ReplyToken, replyText);
 
 
             // patern3
