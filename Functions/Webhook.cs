@@ -14,6 +14,7 @@ using System.Net.Http;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 
+
 namespace Functions
 {
     public class Webhook
@@ -57,10 +58,46 @@ namespace Functions
             }
 
             // オウム返しする
+            // patern1
+            var sendMessage = firstEvent.Message.Text;
+            string replyText;
+            if (sendMessage == "今日の天気は？")
+            {
+                replyText = "晴れです";
+            }
+            else
+            {
+                replyText = sendMessage;
+            }
+
             await Reply(firstEvent.ReplyToken, firstEvent.Message.Text);
+
+            // patern2
+            // var replyText = sendMessage == "今日の天気は？" ? "晴れです。" : sendMessage;
+            // 三項演算子
+            // await Reply(firstEvent.ReplyToken, firstEvent.Message.Text);
+
+            // patern3
+            // var sendMessage = firstEvent.Message.Text;
+            // var replyText = $"あああ : {sendMessage}";
+            // await Reply(firstEvent.ReplyToken, replyText);
 
             return new OkResult();
         }
+
+
+        // var replyText = sendMessage == "今日の天気は？" ? "晴れです。" : sendMessage;
+        // await Reply(firstEvent.ReplyToken, firstEvent.Message.Text);
+        // return new OkResult();
+        // // 三項演算子
+
+
+        // var sendMessage = firstEvent.Message.Text;
+        // var replyText = $"あああ : {sendMessage}";
+        // await Reply(firstEvent.ReplyToken, replyText);
+        // return new OkResult();
+        // $"あああ : {sendMessage}";文字列の中に変数入れるときは$使う
+
 
         /// <summary>
         /// reply APIをコールする
